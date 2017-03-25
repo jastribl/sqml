@@ -36,10 +36,6 @@ const initSync = (htmlFile) => {
     saveDom();
 }
 
-const reload = () => {
-
-}
-
 module.exports = {
     initSync,
     Schema
