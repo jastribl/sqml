@@ -21,9 +21,9 @@ class TableGenerator {
   }
 
   tableRow(row) {
-    return this.schema.columns.map(column => {
-      return `<td data-column"${column}">${row[column] || ''}</td>`
-    }).join('\n');
+    return '<tr>' + this.schema.columns.map(column => {
+      return `<td data-column="${column}">${row[column] || ''}</td>`
+    }).join('\n') + '</tr>';
   }
 
 }
