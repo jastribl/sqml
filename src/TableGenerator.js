@@ -35,8 +35,3 @@ class TableGenerator {
   }
   
 }
-
-const t = new TableGenerator(new Schema('book', {name: String, author: String}));
-
-console.log(t.tableRow({name: 'waffle', type: 'asdf'}));
-console.log(t.tableTag());
