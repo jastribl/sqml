@@ -1,11 +1,13 @@
 const cheerio = require('cheerio');
 const file_helper = require('./src/file_helper');
-const NAME_TO_SCHEMA_MAP = require('./src/name_to_schema_map');
+
 const {Schema} = require('./src/schema')
 const {TABLES} = require('./src/tables');
+const {initDom, refreshDom, getDom, saveDom} = require('./src/dom')
 
 const initSync = (htmlFile) => {
-    let $ = file_helper.getHtmlContent(htmlFile);
+    initDom(htmlFile);
+    let $ = getDom();
     let localTablesMap = new Map();
     $('table').each((tableIndex, table) => {
         table = $(table);
@@ -32,10 +34,10 @@ const initSync = (htmlFile) => {
             $('body').append(`<table id="#${schema.tableName}"><thead><tr>${headers}</tr></thead><tbody></tbody></table>`);
         }
     }
-    file_helper.saveHtmlContent('./test.html', $.html());
+    saveDom();
 }
 
 module.exports = {
-    initSync: initSync,
-    Schema: Schema
+    initSync,
+    Schema
 }
