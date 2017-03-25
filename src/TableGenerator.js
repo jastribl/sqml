@@ -1,10 +1,5 @@
 const {Schema} = require('./schema');
 const pretty = require('pretty');
-// const generateTable = schema => {
-//   schema.tableName
-//   schema.pk
-//   Array.from(schema.columns)
-// }
 
 class TableGenerator {
   constructor(schema) {
