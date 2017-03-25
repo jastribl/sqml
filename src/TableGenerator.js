@@ -11,19 +11,19 @@ class TableGenerator {
     this.schema = schema;
   }
 
-  get columnTags() {
+  columnTags() {
     return Array.from(this.schema.columns).map(column => `<th>${column}</th>`);
   }
 
-  get tableHeaderTag() {
+  tableHeaderTag() {
     return `<tr>${this.columnTags.join('')}</tr>`
   }
 
-  get tableId() {
+  tableId() {
     return `#${this.schema.tableName}`;
   }
 
-  get tableTag() {
+  tableTag() {
     return pretty(`<table id="${this.tableId}">${this.tableHeaderTag}<tbody></tbody></table>`);
   }
 
