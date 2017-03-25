@@ -1,4 +1,4 @@
-const html_helper = require('./html_helper');
+const file_helper = require('./file_helper');
 let fileName;
 let $;
 
@@ -8,7 +8,7 @@ const initDom = (fileFileName) => {
 }
 
 const refreshDom = () => {
-    $ = html_helper.getHtmlContent(fileName);
+    $ = file_helper.getHtmlContent(fileName);
 }
 
 const getDom = () => {
@@ -16,7 +16,7 @@ const getDom = () => {
 }
 
 const saveDom = () => {
-    html_helper.saveHtmlContent(fileName, $.html());
+    file_helper.saveHtmlContent(fileName, $.html());
 }
 
 module.exports = {

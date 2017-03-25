@@ -1,7 +1,8 @@
 const cheerio = require('cheerio');
-const html_helper = require('./src/html_helper');
+const file_helper = require('./src/file_helper');
+
+const {Schema} = require('./src/schema')
 const {TABLES} = require('./src/tables');
-const {Schema} = require('./src/schema');
 const {initDom, refreshDom, getDom, saveDom} = require('./src/dom')
 
 const initSync = (htmlFile) => {
