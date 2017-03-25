@@ -1,4 +1,4 @@
-var sqml = require('sqml');
+const sqml = require('sqml');
 
 sqml.helloWorld();
 

@@ -1,11 +1,11 @@
-let cheerio = require('cheerio');
-let fs = require('fs');
+const cheerio = require('cheerio');
+const fs = require('fs');
 
-let saveHtmlContent = (fileName, contents) => {
+const saveHtmlContent = (fileName, contents) => {
     fs.writeFileSync(fileName, contents);
 }
 
-let getHtmlContent = (fileName) => {
+const getHtmlContent = (fileName) => {
     if (!fs.existsSync(fileName)) {
         saveHtmlContent(fileName, "<!DOCTYPE html><html><body></body></html>");
     }
