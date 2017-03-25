@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "pretty": "^1.0.0",
     "sqml": "file:../"
   }
 }
