@@ -11,7 +11,7 @@ const initSync = (htmlFile) => {
     let localTablesMap = new Map();
     $('table').each((tableIndex, table) => {
         table = $(table);
-        let tableName = table.attr('id').substring(1);
+        let tableName = table.attr('id');
         let headers = [];
         table.find('thead > tr > th').each((headerIndex, header) => {
             header = $(header);
@@ -20,8 +20,20 @@ const initSync = (htmlFile) => {
         localTablesMap.set(tableName, headers)
     });
 
-    let schema = new Schema('test_table', {'name': String, 'age': Number})
-    TABLES.set(schema.tableName, schema);
+    localTablesMap.forEach((headers, table_name) => {
+        let schema = TABLES.get(table_name);
+        if (headers != schema.columns) {
+            $(`#${schema.tableName} > thead`).replaceWith(new TableGenerator(schema).tableHeaderTag());
+            $(`#${schema.tableName} > tbody > tr`).each((rowIndex, row) => {
+                let rowObject = {};
+                $(row).find('td').each((cellIndex, cell) => {
+                    cell = $(cell);
+                    rowObject[cell.data('column')] = cell.text();
+                });
+                $(row).replaceWith(new TableGenerator(schema).tableRow(rowObject));
+            });
+        }
+    });
 
     for (let [key, schema] of TABLES) {
         if (!localTablesMap.has(schema.tableName)) {
