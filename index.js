@@ -19,7 +19,6 @@ const initSync = (htmlFile) => {
         })
         localTablesMap.set(tableName, headers)
     });
-    console.log("localTablesMap:", localTablesMap.keys());
 
     let schema = new Schema('test_table', {'name': String, 'age': Number})
     TABLES.set(schema.tableName, schema);

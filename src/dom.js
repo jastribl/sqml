@@ -4,10 +4,6 @@ let $;
 
 const initDom = (fileFileName) => {
     fileName = fileFileName;
-    refreshDom();
-}
-
-const refreshDom = () => {
     $ = file_helper.getHtmlContent(fileName);
 }
 
@@ -21,7 +17,6 @@ const saveDom = () => {
 
 module.exports = {
     initDom,
-    refreshDom,
     getDom,
     saveDom
 }
