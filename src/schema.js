@@ -29,7 +29,8 @@ class Schema {
 	create(data) {
 		// TODO: get last id + 1 from HTML
         const tableGenerator = new TableGenerator(this);
-        const newObject = Object.assign(this.filterProperties(data), {id: 1});
+        const id = dom.getDom()(`#${this.tableName}`).find('tr').length;
+        const newObject = Object.assign(this.filterProperties(data), {id});
         dom.getDom()(`#${this.tableName} > tbody`).append(tableGenerator.tableRow(newObject));
         dom.saveDom();
 		return newObject;

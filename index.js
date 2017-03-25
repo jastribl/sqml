@@ -4,6 +4,7 @@ const {Schema} = require('./src/schema');
 const {TABLES} = require('./src/tables');
 const {initDom, refreshDom, getDom, saveDom} = require('./src/dom');
 const {TableGenerator} = require('./src/TableGenerator');
+const _ = require('lodash');
 
 const initSync = (htmlFile) => {
     initDom(htmlFile);
@@ -22,7 +23,8 @@ const initSync = (htmlFile) => {
 
     localTablesMap.forEach((headers, table_name) => {
         let schema = TABLES.get(table_name);
-        if (headers != schema.columns) {
+
+        if (!_.isEqual(headers, schema.columns)) {
             $(`#${schema.tableName} > thead`).replaceWith(new TableGenerator(schema).tableHeaderTag());
             $(`#${schema.tableName} > tbody > tr`).each((rowIndex, row) => {
                 let rowObject = {};
