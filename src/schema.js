@@ -1,5 +1,4 @@
-const TABLES = new Map();
-
+const {TABLES} = require('./tables');
 
 class Schema {
   constructor(tableName, columns) {
@@ -34,16 +33,6 @@ class Schema {
 		console.log('persist here');
 	}
 }
-
-const PersonSchema = new Schema('person_table', {name: String, address: String});
-const DoorSchema = new Schema('door_table', {door_name: String});
-
-const a = {door_name: 'potato', name: 'mr mime'};
-const t = PersonSchema.create(a);
-const c = DoorSchema.create(a)
-console.log(t);
-PersonSchema.save(t);
-
 
 module.exports = {
 	Schema
