@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/jastribl/sqml/issues"
   },
-  "homepage": "https://github.com/jastribl/sqml#readme"
+  "homepage": "https://github.com/jastribl/sqml#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0"
+  }
 }
