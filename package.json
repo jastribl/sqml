@@ -1,0 +1,20 @@
+{
+  "name": "sqml",
+  "version": "1.0.0",
+  "description": "Structured Query Markdown Language - SQL in HTML @TerribleHack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jastribl/sqml.git"
+  },
+  "author": "jastribl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jastribl/sqml/issues"
+  },
+  "homepage": "https://github.com/jastribl/sqml#readme"
+}
