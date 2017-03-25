@@ -41,3 +41,8 @@ console.log('PERSON:', t, 'DOORSCHEMA', c);
 PersonSchema.save(t);
 
 console.log('TABLES MAP:', TABLES);
+
+
+module.exports = {
+	Schema
+}
