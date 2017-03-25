@@ -26,8 +26,11 @@ const initSync = (htmlFile) => {
 
         if (!_.isEqual(headers, schema.columns)) {
             $(`#${schema.tableName} > thead`).replaceWith(new TableGenerator(schema).tableHeaderTag());
+            
             $(`#${schema.tableName} > tbody > tr`).each((rowIndex, row) => {
                 let rowObject = {};
+                rowObject.id = $(row).data('id');
+
                 $(row).find('td').each((cellIndex, cell) => {
                     cell = $(cell);
                     rowObject[cell.data('column')] = cell.text();
