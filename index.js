@@ -1,9 +1,9 @@
 const cheerio = require('cheerio');
 const file_helper = require('./src/file_helper');
-
-const {Schema} = require('./src/schema')
+const {Schema} = require('./src/schema');
 const {TABLES} = require('./src/tables');
-const {initDom, refreshDom, getDom, saveDom} = require('./src/dom')
+const {initDom, refreshDom, getDom, saveDom} = require('./src/dom');
+const {TableGenerator} = require('./src/TableGenerator');
 
 const initSync = (htmlFile) => {
     initDom(htmlFile);
@@ -26,12 +26,7 @@ const initSync = (htmlFile) => {
 
     for (let [key, schema] of TABLES) {
         if (!localTablesMap.has(schema.tableName)) {
-            let headers = '';
-            console.log(schema.columns);
-            for (let columnName of Array.from(schema.columns)) {
-                headers += `<th>${columnName}</th>`;
-            }
-            $('body').append(`<table id="#${schema.tableName}"><thead><tr>${headers}</tr></thead><tbody></tbody></table>`);
+            $('body').append(new TableGenerator(schema).tableTag());
         }
     }
     saveDom();
