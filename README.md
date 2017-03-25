@@ -27,9 +27,9 @@ const joe = Person.insert({name: 'joe', address: 'fake street'});
 
 joe.name
 
-Person.select(...);
-Person.insert(...);
-Person.
+Person.select(...); // return [{id, ...}, ...]
+Person.insert(...); // return {id, ...}
+Person.delete(Person.select(...)); // return num rows deleted
 
 
 ```
