@@ -8,12 +8,12 @@ class Schema {
 		TABLES.set(tableName, this);
 		this.tableName = tableName;
 		this.pk = 'id';
-		this.columns = new Set(Object.keys(columns));
+		this.columns = Object.keys(columns);
   }
 
 	filterProperties(data) {
 		return data ? Object.keys(data).reduce((obj, property) => {
-					if(this.columns.has(property)) {
+					if(property in this.columns) {
 						const value = data[property];
 						obj[property] = value;
 					}

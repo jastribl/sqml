@@ -19,7 +19,7 @@ const getHtmlContent = (fileName) => {
     if (!fs.existsSync(fileName)) {
         saveHtmlContent(fileName, pretty(`<!DOCTYPE html><html><head>${style}</head><body></body></html>`));
     }
-    const contents = fs.readFileSync('./test.html', 'utf8').toString();
+    const contents = fs.readFileSync(fileName, 'utf8').toString();
     return cheerio.load(contents);
 }
 
