@@ -28,5 +28,7 @@ class TableGenerator {
       return `<td data-column"${column}">${row[column] || ''}</td>`
     }).join('\n');
   }
-  
+
 }
+
+module.exports = { TableGenerator }
