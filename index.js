@@ -1,6 +1,6 @@
 const cheerio = require('cheerio');
 const html_helper = require('./html_helper');
-const NAME_TO_SCHEMA_MAP = require('./name_to_scham_map');
+const NAME_TO_SCHEMA_MAP = require('./name_to_schema_map');
 const {Schema} = require('./src/schema')
 
 const initSync = (htmlFile) => {
