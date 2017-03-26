@@ -48,7 +48,11 @@ class Schema {
         return rowObject;
     }
 	update(id, properties) {
-
+        const tableGenerator = new TableGenerator(this);
+        const obj = Object.assign(this.read(id), properties);
+        const $ = dom.getDom();
+        const row = $(`#${this.tableName}`).find(`tbody tr[data-id="${id}"]`);
+        $(row).replaceWith(tableGenerator.tableRow(obj));
         dom.saveDom();
     }
 	destroy(id) {

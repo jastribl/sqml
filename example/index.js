@@ -11,5 +11,7 @@ const c = DoorSchema.create(a);
 
 const r = PersonSchema.read(1);
 
+PersonSchema.update(1, {name: 'bob'});
+
 // PersonSchema.save(t);
 
