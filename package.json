@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jastribl/sqml#readme",
   "dependencies": {
     "cheerio": "^0.22.0",
+    "lodash": "^4.17.4",
     "pretty": "^1.0.0"
   }
 }
