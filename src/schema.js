@@ -36,14 +36,24 @@ class Schema {
 		return newObject;
 	}
 	read(id) {
-        const tableRow = dom.getDom()(`#${id}`).parent().children();
-        return tableRow;
+        let $ = dom.getDom();
+        const row = $(`#${this.tableName}`).find(`tbody tr[data-id="${id}"]`);
+        let rowObject = {};
+        rowObject.id = $(row).data('id');
+
+        $(row).find('td').each((cellIndex, cell) => {
+            cell = $(cell);
+            rowObject[cell.data('column')] = cell.text();
+        });
+        return rowObject;
     }
 	update(id, properties) {
 
+        dom.saveDom();
     }
 	destroy(id) {
-        // dom.getDom().(`#${id}`).parent();
+        dom.getDom()(`tr[data-id="${id}"]`).remove();
+        dom.saveDom();
     }
 	// save() {
 	// 	console.log('persist here');
